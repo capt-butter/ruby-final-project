@@ -48,6 +48,9 @@ public class RubyController : MonoBehaviour
     public GameObject winmsg;
     public bool lvl2 = false;
 
+    //emp thing for final project
+    public int emp = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -131,6 +134,16 @@ public class RubyController : MonoBehaviour
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
+
+        //code to start emp (final project item)
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (emp >= 1)
+            {
+                emp--;
+
+            }
+        }
     }
 
     void FixedUpdate()
@@ -208,6 +221,11 @@ public class RubyController : MonoBehaviour
         if (collision.collider.tag == "health")
         {
             GameObject health = Instantiate(healthfx, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        }
+        if (collision.collider.tag == "emp")
+        {
+            emp++;
+            Destroy(collision.collider.gameObject);
         }
     }
     public void scoreupdate()
