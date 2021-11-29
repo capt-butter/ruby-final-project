@@ -214,7 +214,7 @@ public class RubyController : MonoBehaviour
     {
         if (collision.collider.tag == "ammo")
         {
-            ammo = ammo + 1;
+            ammo = ammo + 4;
             ammotxt.text = "ammo: " + ammo.ToString();
             Destroy(collision.collider.gameObject);
         }
