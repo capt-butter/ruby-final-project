@@ -40699,7 +40699,7 @@ GameObject:
   - component: {fileID: 2049565878}
   - component: {fileID: 2049565877}
   - component: {fileID: 2049565880}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: adventurer-Sheet_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
