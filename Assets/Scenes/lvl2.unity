@@ -308,6 +308,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 688962708}
     m_Modifications:
+    - target: {fileID: 7484912353736373681, guid: e8097d8c8b18dc14e856c8c93e0da4bb,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8777838329303296232, guid: e8097d8c8b18dc14e856c8c93e0da4bb,
         type: 3}
       propertyPath: m_Name
@@ -2401,7 +2406,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.059493702}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2412,7 +2417,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.16, y: 0.27898738}
   m_EdgeRadius: 0
 --- !u!4 &1184343712 stripped
 Transform:
@@ -40279,7 +40284,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.046654392}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -40290,7 +40295,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.16, y: 0.2533088}
   m_EdgeRadius: 0
 --- !u!95 &1891094649
 Animator:
@@ -40956,7 +40961,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.053544343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -40967,7 +40972,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19, y: 0.29}
+  m_Size: {x: 0.19, y: 0.18291128}
   m_EdgeRadius: 0
 --- !u!1001 &2060351377
 PrefabInstance:

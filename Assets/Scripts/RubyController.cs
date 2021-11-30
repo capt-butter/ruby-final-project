@@ -141,7 +141,7 @@ public class RubyController : MonoBehaviour
             if (emp >= 1)
             {
                 emp--;
-                emp();
+                emplaunch();
             }
         }
     }
@@ -251,7 +251,7 @@ public class RubyController : MonoBehaviour
     }
 
     //stops the bots from moving
-    void emp()
+    void emplaunch()
     {
 
     }
