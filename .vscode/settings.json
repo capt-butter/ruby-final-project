@@ -58,7 +58,7 @@
   },
   "files.autoSave": "afterDelay",
   "csharp.referencesCodeLens.enabled": false,
-  "gitdoc.enabled": true,
+  "gitdoc.enabled": false,
   "gitdoc.autoCommitDelay": 15000,
   "gitdoc.autoPush": "onCommit",
   "gitdoc.autoPushDelay": 10000,
