@@ -250,10 +250,10 @@ public class RubyController : MonoBehaviour
         }
     }
 
-    //
+    //stops the bots from moving
     void emp()
     {
-        
+
     }
     IEnumerator ExampleCoroutine()
     {
