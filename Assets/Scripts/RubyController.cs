@@ -141,7 +141,7 @@ public class RubyController : MonoBehaviour
             if (emp >= 1)
             {
                 emp--;
-
+                emp();
             }
         }
     }
@@ -248,6 +248,10 @@ public class RubyController : MonoBehaviour
                 musicSource.Play();
             }
         }
+    }
+
+    void emp()
+    {
 
     }
     IEnumerator ExampleCoroutine()
