@@ -48,8 +48,8 @@ public class RubyController : MonoBehaviour
     public GameObject winmsg;
     public bool lvl2 = false;
 
-    //emp thing for final project
-    public int emp = 0;
+    //timer for the timed mode
+    int timer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +70,7 @@ public class RubyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //method first checks if timer is over limit
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
@@ -136,6 +137,7 @@ public class RubyController : MonoBehaviour
         }
 
         //code to start emp (final project item)
+        /*
         if (Input.GetKeyDown(KeyCode.Z))
         {
             if (emp >= 1)
@@ -144,6 +146,7 @@ public class RubyController : MonoBehaviour
                 emplaunch();
             }
         }
+        */
     }
 
     void FixedUpdate()
@@ -153,6 +156,10 @@ public class RubyController : MonoBehaviour
         position.y = position.y + speed * vertical * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
+
+        //timer update
+        timer++;
+        Debug.Log("updates = " + timer);
     }
 
     public void ChangeHealth(int amount)
@@ -222,11 +229,7 @@ public class RubyController : MonoBehaviour
         {
             GameObject health = Instantiate(healthfx, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         }
-        if (collision.collider.tag == "emp")
-        {
-            emp++;
-            Destroy(collision.collider.gameObject);
-        }
+
     }
     public void scoreupdate()
     {
