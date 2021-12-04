@@ -8,6 +8,9 @@ TagManager:
   - health
   - emp
   - enemy
+  - boss
+  - bullet
+  - electricity
   layers:
   - Default
   - TransparentFX

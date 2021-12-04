@@ -48,8 +48,10 @@ public class RubyController : MonoBehaviour
     public GameObject winmsg;
     public bool lvl2 = false;
 
-    //timer for the timed mode
-    int timer = 0;
+    public int elec;
+    public AudioClip fixedelec;
+    public AudioClip dialog;
+    bool generator = false;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,8 @@ public class RubyController : MonoBehaviour
         losemsg.SetActive(false);
         nxtlvl.SetActive(false);
         winmsg.SetActive(false);
+
+
     }
 
     // Update is called once per frame
@@ -111,13 +115,15 @@ public class RubyController : MonoBehaviour
                 if (character != null)
                 {
                     //new thing for displaying new level txt
-                    if (score == 4)
+                    if (score == 4 && lvl2 == false)
                     {
+                        audioSource.PlayOneShot(dialog);
                         character.Displaylvl2();
                         StartCoroutine(ExampleCoroutine());
                     }
                     else
                     {
+                        audioSource.PlayOneShot(dialog);
                         character.DisplayDialog();
                     }
                 }
@@ -135,18 +141,6 @@ public class RubyController : MonoBehaviour
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-
-        //code to start emp (final project item)
-        /*
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            if (emp >= 1)
-            {
-                emp--;
-                emplaunch();
-            }
-        }
-        */
     }
 
     void FixedUpdate()
@@ -157,9 +151,6 @@ public class RubyController : MonoBehaviour
 
         rigidbody2d.MovePosition(position);
 
-        //timer update
-        timer++;
-        Debug.Log("updates = " + timer);
     }
 
     public void ChangeHealth(int amount)
@@ -229,6 +220,24 @@ public class RubyController : MonoBehaviour
         {
             GameObject health = Instantiate(healthfx, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         }
+        if (collision.collider.tag == "electricity")
+        {
+            elec++;
+            Debug.Log("fixed a thing");
+            audioSource.PlayOneShot(fixedelec);
+            if (elec >= 2)
+            {
+                generator = true;
+                if (score == 4)
+                {
+                    winmsg.SetActive(true);
+                    lost = true;
+                    musicSource.Stop();
+                    musicSource.clip = win;
+                    musicSource.Play();
+                }
+            }
+        }
 
     }
     public void scoreupdate()
@@ -244,20 +253,19 @@ public class RubyController : MonoBehaviour
             }
             else
             {
-                winmsg.SetActive(true);
-                lost = true;
-                musicSource.Stop();
-                musicSource.clip = win;
-                musicSource.Play();
+                if (generator == true)
+                {
+                    winmsg.SetActive(true);
+                    lost = true;
+                    musicSource.Stop();
+                    musicSource.clip = win;
+                    musicSource.Play();
+                }
             }
         }
     }
 
-    //stops the bots from moving
-    void emplaunch()
-    {
 
-    }
     IEnumerator ExampleCoroutine()
     {
         yield return new WaitForSecondsRealtime(2);

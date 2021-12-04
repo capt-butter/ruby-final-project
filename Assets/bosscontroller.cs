@@ -17,6 +17,11 @@ public class bosscontroller : MonoBehaviour
     public ParticleSystem smokeEffect;
     private RubyController rubyController;
 
+    //bot stuff for final
+    public int health = 4;
+    public AudioSource botaudio;
+    public AudioClip splosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +37,25 @@ public class bosscontroller : MonoBehaviour
         {
             return;
         }
+
+        //health stuff for bot, it gets slower if the bot has been hit
+        if (health == 0)
+        {
+            Destroy(gameObject);
+        }
+        if (health == 1)
+        {
+            speed = 2;
+        }
+        if (health == 2)
+        {
+            speed = 3;
+        }
+        if (health == 3)
+        {
+            speed = 4;
+        }
+
 
         timer -= Time.deltaTime;
 
@@ -49,6 +73,7 @@ public class bosscontroller : MonoBehaviour
         {
             return;
         }
+
 
         Vector2 position = rigidbody2D.position;
 
@@ -68,31 +93,21 @@ public class bosscontroller : MonoBehaviour
         rigidbody2D.MovePosition(position);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        RubyController player = other.gameObject.GetComponent<RubyController>();
+        //checks if hit by bullet  
+        if (collision.collider.tag == "bullet")
+        {
+            //Debug.Log ("enemy hit");
+            health--;
+            botaudio.PlayOneShot(splosion);
+        }
+
+        RubyController player = collision.gameObject.GetComponent<RubyController>();
 
         if (player != null)
         {
             player.ChangeHealth(-2);
         }
     }
-
-    //score updating/section from regular enemies
-    /*
-    public void stop()
-    {
-        broken = false;
-        rigidbody2D.simulated = false;
-        //added the animation
-        animator.SetTrigger("Fixed");
-        smokeEffect.Stop();
-        GameObject rubyControllerObject = GameObject.FindWithTag("Player");
-        rubyController = rubyControllerObject.GetComponent<RubyController>();
-        if (rubyControllerObject != null)
-        {
-            rubyController.scoreupdate();
-        }
-    }
-    */
 }
