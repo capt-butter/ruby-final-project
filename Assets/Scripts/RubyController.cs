@@ -224,8 +224,7 @@ public class RubyController : MonoBehaviour
         {
             elec++;
             Debug.Log("fixed a thing");
-            audioSource.PlayOneShot(fixedelec);
-            if (elec >= 2)
+            if (elec >= 3)
             {
                 generator = true;
                 if (score == 4)
